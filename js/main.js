@@ -57,9 +57,10 @@ const posts = [
 ];
 
 let griglia = document.getElementById("container");
-griglia.innerHTML= ""
+griglia.innerHTML= "";
 
 posts.forEach(function(element, i) {
+    
     griglia.innerHTML += `
                         <div class="post" id="post">
                             <div class="post__header">
@@ -80,7 +81,7 @@ posts.forEach(function(element, i) {
                             <div class="post__footer">
                                 <div class="likes js-likes">
                                     <div class="likes__cta">
-                                        <a class="like-button  js-like-button" href="#" data-postid="1">
+                                        <a class="like-button  js-like-button" data-postid="1">
                                             <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
                                             <span class="like-button__label">Mi Piace</span>
                                         </a>
@@ -91,5 +92,19 @@ posts.forEach(function(element, i) {
                                 </div> 
                             </div>            
                         </div>
-                        `
+                       `
+              
 });
+
+
+
+
+let miPiace = document.querySelectorAll(".like-button__label");
+
+for (let i = 0; i < miPiace.length; i++) {
+    const element = miPiace[i];
+    element.addEventListener("click", function() {
+        this.classList.toggle("clicked");
+        console.log(miPiace);
+    })
+}
